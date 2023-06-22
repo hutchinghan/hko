@@ -1,0 +1,23 @@
+void invert(char *s)
+{int i,j,k;
+ char t;
+ k=strlen(s);
+ for(i=0,j=k-1;i<k/2;i++,j--)
+ {  t=*(s+i);  *(s+i)=*(s+j);  *(s+j)=t; }
+}
+main()
+{ FILE *fp;
+char str[200],*p,i,j;
+if((fp=fopen("p9_2.out","w"))==NULL) 
+     { printf("cannot open the file\n");
+       exit(0);                       
+     }
+   printf("input str:\n");
+gets(str);
+   printf(“\n%s”,str);
+fprintf(fp,“%s”,str);
+invert(str);
+    printf(“\n%s”,str);
+fprintf(fp,“\n%s”,str);
+  fclose(fp);
+}
